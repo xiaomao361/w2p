@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 from win32com import client
 import re
+import time
 
 def doc2pdf(doc_name, pdf_name):  
     try:
@@ -12,6 +13,7 @@ def doc2pdf(doc_name, pdf_name):
         worddoc = word.Documents.Open(doc_name,ReadOnly = 1)
         worddoc.SaveAs(pdf_name, FileFormat = 17)
         worddoc.Close()
+        word.Quit()
         return pdf_name
     except Exception as e:
         print('convert error:' + str(e))
@@ -20,10 +22,13 @@ def doc2pdf(doc_name, pdf_name):
 if __name__ == '__main__':
     base_dir = '.'
     for doc_file in Path(base_dir).glob('*.doc*'):
-        print('convert the word file: ' + str(doc_file))
-        base_name = re.findall(r'(.+?)\.', str(doc_file))
-        url = os.getcwd()
-        doc_name = url + "\\" + str(doc_file)
-        pdf_name = url + "\\" + str(base_name[0]) + '.pdf'
-        doc2pdf(doc_name, pdf_name)
+        # base_name = re.findall(r'(.+?)\.', str(doc_file))
+        base_name = str(doc_file)[:str(doc_file).rindex(".")]
+        if "~$" not in base_name:
+            print('convert the word file: ' + str(doc_file))
+            url = os.getcwd()
+            doc_name = url + "\\" + str(doc_file)
+           # pdf_name = url + "\\" + str(base_name[0]) + '.pdf'
+            pdf_name = url + "\\" + str(base_name) + '.pdf'
+            doc2pdf(doc_name, pdf_name)
         
