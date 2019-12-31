@@ -16,4 +16,4 @@ fix bugs：
 
 ## License
 
-本项目采用 [![license](https://img.shields.io/github/license/littlemo/mohand.svg)](https://github.com/littlemo/mohand) 协议开源发布，请您在修改后维持开源发布。
+本项目采用 [![license](https://img.shields.io/github/license/littlemo/mohand.svg)](https://github.com/xiaomao361/w2p) 协议开源发布，请您在修改后维持开源发布。
