@@ -13,3 +13,7 @@ fix bugs：
 1. 修复了因文件名中出现"."导致的文件名截取不完整
 2. 排除了当word文件打开时出现的缓存文件也被转码导致出错
 3. 转码完成后，会关闭word进程
+
+## License
+
+本项目采用 [![license](https://img.shields.io/github/license/littlemo/mohand.svg)](https://github.com/littlemo/mohand) 协议开源发布，请您在修改后维持开源发布。
